@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// 공원 산책
+// https://school.programmers.co.kr/learn/courses/30/lessons/172928?language=csharp
+
 namespace cs_prj.lv1._20251015
 {
     public class _20251015_6
