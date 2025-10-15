@@ -87,17 +87,18 @@ if __name__ == '__main__':
     # print(pcce_no_10(mats, park))
 
     # 가장 많이 받은 선물
-    friends = [
-        ["muzi", "ryan", "frodo", "neo"],
-        ["joy", "brad", "alessandro", "conan", "david"],
-        ["a", "b", "c"]
-    ]
-    gifts = [
-        ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi",
-         "frodo ryan", "neo muzi"],
-        ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro",
-         "alessandro david"],
-        ["a b", "b a", "c a", "a c", "a c", "c a"]
-    ]
-    idx = 2
-    print(seonmul(friends[idx], gifts[idx]))
+    # friends = [
+    #     ["muzi", "ryan", "frodo", "neo"],
+    #     ["joy", "brad", "alessandro", "conan", "david"],
+    #     ["a", "b", "c"]
+    # ]
+    # gifts = [
+    #     ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi",
+    #      "frodo ryan", "neo muzi"],
+    #     ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro",
+    #      "alessandro david"],
+    #     ["a b", "b a", "c a", "a c", "a c", "c a"]
+    # ]
+    # idx = 2
+    # print(seonmul(friends[idx], gifts[idx]))
+
