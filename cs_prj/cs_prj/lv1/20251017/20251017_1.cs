@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace cs_prj.lv1._20251016
+/*
+ * 바탕화면 정리
+ * https://school.programmers.co.kr/learn/courses/30/lessons/161990
+ */
+
+namespace cs_prj.lv1._20251017
 {
-    public class _20251016_2
+    public class _20251017_1
     {
-        public _20251016_2()
+        public _20251017_1()
         {
             string[][] wallpaper = new string[][]
             {
@@ -16,6 +18,7 @@ namespace cs_prj.lv1._20251016
                 new string[] { "..........", ".....#....", "......##..", "...##.....", "....#....." },
                 new string[] { ".##...##.", "#..#.#..#", "#...#...#", ".#.....#.", "..#...#..", "...#.#...", "....#...." },
                 new string[] { "..", "#." },
+                new string[] { ".....", "....#" },
             };
 
             int[][] result = new int[][] {
@@ -23,6 +26,7 @@ namespace cs_prj.lv1._20251016
                 new int[] { 1, 3, 5, 8 },
                 new int[] {0, 0, 7, 9 },
                 new int[] {1, 0, 2, 1 },
+                new int[] {1, 4, 2, 5},
             };
 
             for (int i = 0; i < result.Length; i++)
@@ -39,14 +43,22 @@ namespace cs_prj.lv1._20251016
         }
         public int[] solution(string[] wallpaper)
         {
-            int[] answer = new int[] { };
+            List<int> row = new List<int>();
+            List<int> col = new List<int>();
 
-            int startRow = 0, startCol = 0;
-            int endRow = 0, endCol = 0;
+            for (int r = 0; r < wallpaper.Length; r++)
+            {
+                for (int c = 0; c < wallpaper[r].Length; c++)
+                {
+                    if ((wallpaper[r][c].Equals('#')))
+                    {
+                        row.Add(r);
+                        col.Add(c);
+                    }
+                }
+            }
 
-            for (int r = 0; r<)
-
-            return answer;
+            return new int[] { row.Min(), col.Min(), row.Max() + 1, col.Max() + 1};
         }
     }
 }
