@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 /*
  * 덧칠하기
  * https://school.programmers.co.kr/learn/courses/30/lessons/161989
  */
 
-namespace cs_prj.lv1._20251017
+namespace cs_prj.lv1._20251020
 {
-    internal class _20251017_2
+    internal class _20251020_1
     {
-        public _20251017_2()
+        public _20251020_1()
         {
             int[] n = new int[] { 8, 5, 4 };
 
@@ -26,7 +27,7 @@ namespace cs_prj.lv1._20251017
                 new int[] { 1, 2, 3, 4},
             };
 
-            int[] result = new int[] {1, 2, 4 };
+            int[] result = new int[] {2, 1, 4 };
 
             for (int i = 0; i < result.Length; i++)
             {
@@ -45,9 +46,16 @@ namespace cs_prj.lv1._20251017
         public int solution(int n, int m, int[] section)
         {
             int answer = 0;
+            int painted = 0;
 
-            int [] result = new int[n];
-            Array.Fill(result, 1);
+            foreach (int pos in section)
+            {
+                if (pos > painted)
+                {
+                    painted = pos + m - 1;
+                    answer++;
+                }
+            }
 
             return answer;
         }
