@@ -88,69 +88,77 @@ namespace cs_prj.lv1._20251021
 
         public string solution2(string[] cards1, string[] cards2, string[] goal)
         {
-            string answer = "Yes";
-
             List<Queue<string>> queue = new List<Queue<string>>();
             queue.Add(new Queue<string>(cards1));
             queue.Add(new Queue<string>(cards2));
 
-            for (int g = 0; g < goal.Length; g++)
+            int g = 0;
+            while (g <goal.Length)
             {
                 var item = goal[g];
+                var matchedIdx = new List<int>();
 
-                string word;
-                int matchCount = 0;
-                int matchIdx = -1;
                 for (int i = 0; i < queue.Count; i++)
                 {
-                    if (!queue[i].TryPeek(out word))
+                    if (queue[i].TryPeek(out string word) && word.Equals(item))
                     {
-                        continue;
-                    }
-                    if (item.Equals(word))
-                    {
-                        matchCount++;
-                        matchIdx = i;
+                        matchedIdx.Add(i);
                     }
                 }
 
-                switch (matchCount)
+                if (matchedIdx.Count == 0)
                 {
-                    case 0:
-                        return "No";
-                    case 1:
-                        queue[matchIdx].Dequeue();
-                        break;
-                    case 2: // 두 개의 큐에 같은 문자가 있을때
-                        // 마지막 item이면 종료
-                        if (g + 1 == goal.Length)
+                    return "No";
+                }
+                else if (matchedIdx.Count == 1)
+                {
+                    queue[matchedIdx[0]].Dequeue();
+                    g++;
+                    continue;
+                }
+
+                // 큐에 같은 문자가 있을 때
+                string[] remainingGoals = goal.Skip(g).ToArray();
+                int bestIdx = -1;
+                int bestScore = -1;
+
+                foreach (var idx in matchedIdx)
+                {
+                    var q = queue[idx];
+                    int score = 0;
+                    int maxCount = Math.Min(q.Count, remainingGoals.Length);
+
+                    // 이후 단어들과 goal의 값이 얼마나 일치하는지 점수화
+                    var qArr = q.ToArray();
+                    for (int i = 0; i < maxCount; i++)
+                    {
+                        if (qArr[i] != remainingGoals[i])
                         {
-                            return "Yes";
+                            break;
                         }
-                        // 큐의 2번째 값과 nextItem비교
-                        string nextItem = goal[g + 1];
-                        bool isMatch = false;
-                        for (int i = 0; i < queue.Count; i++)
-                        {
-                            if (queue[i].Count > 1)
-                            {
-                                if (queue[i].ElementAt(1).Equals(nextItem))
-                                {
-                                    isMatch = true;
-                                    queue[i].Dequeue();
-                                    break;
-                                }
-                            }
-                        }
-                        if (!isMatch)
-                            return "No";
-                        break;
+                        score++;
+                    }
+
+                    if (score > bestScore)
+                    {
+                        bestIdx = idx;
+                        bestScore = score;
+                    }
+                }
+                if (bestIdx < 0)
+                {
+                    return "No";
+                }
+
+                for (int i = 0; i < bestScore; i++)
+                {
+                    queue[bestIdx].Dequeue();
+                    g++;
                 }
             }
 
-            return answer;
+            return "Yes";
         }
-
 
     }
 }
