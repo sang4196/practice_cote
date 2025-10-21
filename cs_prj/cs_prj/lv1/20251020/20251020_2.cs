@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * 대충 만든 자판
+ * https://school.programmers.co.kr/learn/courses/30/lessons/160586
+ */
+
 namespace cs_prj.lv1._20251020
 {
     internal class _20251020_2

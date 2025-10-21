@@ -1,10 +1,11 @@
 ﻿using cs_prj.lv1._20251020;
+using cs_prj.lv1._20251021;
 using System;
 using System.Globalization;
 
 
 
-_20251020_2 solution = new _20251020_2();
+_20251021_1 solution = new _20251021_1();
 
 //public class Solution
 //{
