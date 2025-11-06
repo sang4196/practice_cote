@@ -3,12 +3,13 @@ using cs_prj.lv1._20251021;
 using cs_prj.lv1._20251022;
 using cs_prj.lv1._20251024;
 using cs_prj.lv1._20251103;
+using cs_prj.lv1._20251106;
 using System;
 using System.Globalization;
 
 
 
-var solution = new _20251103();
+var solution = new _20251106();
 
 //public class Solution
 //{
