@@ -1,22 +1,6 @@
-﻿using cs_prj.lv1._20251020;
-using cs_prj.lv1._20251021;
-using cs_prj.lv1._20251022;
-using cs_prj.lv1._20251024;
-using cs_prj.lv1._20251103;
-using cs_prj.lv1._20251106;
-using cs_prj.lv1._20251107;
-using cs_prj.lv1._20251108;
-using cs_prj.lv1._20251110;
-using cs_prj.lv1._20251112;
-using cs_prj.lv2._20251112;
-using cs_prj.lv2._20251113;
-using cs_prj.lv2._20260209;
-using System;
-using System.Globalization;
+﻿using cs_prj.lv2._20251113;
 
-
-
-var solution = new _20260209();
+var solution = new _20251113();
 
 //public class Solution
 //{
